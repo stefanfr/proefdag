@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'DashboardController@index');
+Route::get('/generateJson', 'DashboardController@jsonGenerate');
+Route::get('/getAdditionalInformation/{productInformationId}', 'DashboardController@getAdditionalInformation');
