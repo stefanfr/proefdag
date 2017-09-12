@@ -10,4 +10,19 @@ class ProductInformation extends Model
     {
         return $this->hasOne("App\ProductNutritionalValue");
     }
+
+    public function ProductSegmentsValue()
+    {
+        return $this->hasMany("App\ProductSegments");
+    }
+
+    public function SaleProducts()
+    {
+        return $this->hasMany("App\SaleProducts");
+    }
+
+    public function PurchaseInformation()
+    {
+        return $this->hasMany("App\PurchaseInformation");
+    }
 }
