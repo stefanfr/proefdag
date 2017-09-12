@@ -13,7 +13,8 @@
             <th>Size</th>
             <th>Stock</th>
             <th>Sold</th>
-            <th>Winst</th>
+            <th>Profit/Losses</th>
+            <th>Shelf Life</th>
         </tr>
         </thead>
         <tbody>
@@ -25,20 +26,22 @@
                 <td>{{ $product->ean }}</td>
                 <td>&euro; {{ number_format($product->price, 2, ',', '.') }}</td>
                 <td>{{ $product->brand }}</td>
-                <td>{{ $product->size }}</td>
-                <td>{{ $product->stock }}</td>
-                <td>{{ $data[$product->id]['soldAmount'] }}</td>
+                <td>{{ $product->size }} Ml</td>
+                <td>{{ $product->stock }} units</td>
+                <td>{{ $data[$product->id]['soldAmount'] }} units</td>
                 <td v="{{ ($data[$product->id]['soldAmount'] * $product->price) - ($data[$product->id]['buyInPrice'] * $product->stock)   }}"
                     class="{{ ($data[$product->id]['soldAmount'] * $product->price) - ($data[$product->id]['buyInPrice'] * $product->stock)>0?'green' : 'red' }}">
                     &euro; {{ number_format(($data[$product->id]['soldAmount'] * $product->price) - ($data[$product->id]['buyInPrice'] * $product->stock), 2, ',', '.')   }}
                 </td>
+                <td>{{$data[$product->id]['AVGShelfLife']}} days</td>
             </tr>
         @endforeach
         </tbody>
     </table>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">

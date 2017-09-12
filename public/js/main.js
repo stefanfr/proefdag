@@ -11,17 +11,17 @@ $('document').ready(function () {
     var maximum = null;
     var minimum = null;
 
-    $('.green').each(function() {
+    $('.green').each(function () {
         var value = parseFloat($(this).attr('v'));
         maximum = (value > maximum) ? value : maximum;
         console.log(maximum);
     });
 
-    $('.red').each(function() {
+    $('.red').each(function () {
         var value = parseFloat($(this).attr('v'));
         minimum = (value < minimum) ? value : minimum;
         console.log(minimum);
     });
-    $(".green[v='" + maximum +"']").parent().addClass("table-success");
-    $(".red[v='" + minimum +"']").parent().addClass("table-danger");
+    $(".green[v='" + maximum + "']").parent().addClass("table-success");
+    $(".red[v='" + minimum + "']").parent().addClass("table-danger");
 });

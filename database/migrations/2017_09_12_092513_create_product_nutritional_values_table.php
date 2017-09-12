@@ -16,9 +16,9 @@ class CreateProductNutritionalValuesTable extends Migration
         Schema::create('product_nutritional_values', function (Blueprint $table) {
             $table->increments('id');
             $table->integer("product_information_id");
-            $table->foreign("product_information_id")
-                ->references("id")->on("product_information")
-                ->onDelete('cascade');
+//            $table->foreign("product_information_id")
+//                ->references("id")->on("product_information")
+//                ->onDelete('cascade');
             $table->integer("energy", false, true)->length(4);
             $table->double("fats", 3, 2);
             $table->double("saturated_fats", 3, 2);

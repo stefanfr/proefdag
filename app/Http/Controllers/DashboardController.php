@@ -30,13 +30,15 @@ class DashboardController extends Controller
                 $soldAmount += $saleProduct->amount;
             }
 
-            $price = 0;
-            $i = 0;
+            $AVGPrice = 0;
+            $AVGShelfLife = 0;
+            $count = 0;
             foreach ($product->PurchaseInformation as $information) {
-                $price += $information->price;
-                $i++;
+                $AVGPrice += $information->price;
+                $AVGShelfLife += $information->shelf_life;
+                $count++;
             }
-            $data[$product->id] = ['soldAmount' => $soldAmount, 'buyInPrice' => ($i > 0 ? $price / $i : 0)];
+            $data[$product->id] = ['soldAmount' => $soldAmount, 'buyInPrice' => ($count > 0 ? $AVGPrice / $count : 0), 'AVGShelfLife' => ($count > 0 ? $AVGShelfLife / $count : 0)];
         }
         return view('dashboard', ['products' => $products, 'data' => $data]);
     }

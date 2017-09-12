@@ -16,9 +16,9 @@ class CreateProductSegmentsTable extends Migration
         Schema::create('product_segments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer("product_information_id");
-            $table->foreign("product_information_id")
-                ->references("id")->on("product_information")
-                ->onDelete('cascade');
+//            $table->foreign("product_information_id")
+//                ->references("id")->on("product_information")
+//                ->onDelete('cascade');
             $table->string("segment", 40);
         });
     }

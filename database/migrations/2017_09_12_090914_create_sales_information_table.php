@@ -15,10 +15,6 @@ class CreateSalesInformationTable extends Migration
     {
         Schema::create('sales_information', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("sale_products_id");
-            $table->foreign("sale_products_id")
-                ->references("id")->on("sale_products")
-                ->onDelete('cascade');
             $table->timestamps();
         });
     }
